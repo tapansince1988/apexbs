@@ -1,0 +1,104 @@
+<% @page_heading = "Option." %>
+
+<div class="column small-9 spacer">
+  <div class="callout secondary ">
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:title, "TITLE : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.title %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:stock_price, "STOCK PRICE : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.stock_price %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:strike_price, "STRIKE PRICE : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.strike_price %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:is_call, "TYPE : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.is_call ? "CALL" : "PUT" %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:created_at, "DATE OF MATURITY : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.created_at+(@option.time.year) %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:volatility, "VOLATILITY : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.volatility %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:risk_free_rate, "TRISK FREE RATE : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.risk_free_rate %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:updated_at, "LAST UPDATED AT : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.updated_at %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label id="bs_calc" for="bs_calc" class="text-right middle">BLACK SCHOLES CALCULATION  : </label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @bs_clc %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label id="cnd_calc" for="cnd_calc" class="text-right middle">CUMULATIVE NORMAL DISTRIBUTION : </label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @cnd_clc %></label>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="column small-3">
+  <div class="row"><%= link_to("Back to all options", {:action => 'index'}, :class => "button") %></div>
+  <div class="row"><%= link_to("Edit", {:action => 'edit', :id => @option.id}, :class => "button") %></div>
+    <div class="row"><%= link_to("Delete", {:action => 'delete', :id => @option.id}, :class => "button") %></div>
+</div>
+<p>&nbsp;</p>
+<P>&nbsp;</P>

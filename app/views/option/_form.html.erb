@@ -1,0 +1,87 @@
+
+<div class="column small-9 spacer">
+  <div class="callout secondary ">
+<div class="row">
+  <div class="small-4 columns">
+    <label class="text-right middle"><%= u.label(:title, "TITLE : ") %></label>
+  </div>
+  <div class="small-5 columns">
+    <%= u.text_field (:title) %>
+  </div>
+  <div class="small-2 columns">
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="small-4 columns">
+    <label class="text-right middle"><%= u.label(:stock_price, "STOCK PRICE : ") %></label>
+  </div>
+  <div class="small-5 columns">
+    <%= u.text_field(:stock_price) %>
+  </div>
+  <div class="small-2 columns">
+  </div>
+</div>
+<div class="row">
+
+  <div class="small-4 columns">
+    <label class="text-right middle"><%= u.label(:strike_price, "STRIKE PRICE : ") %></label>
+  </div>
+  <div class="small-5 columns">
+    <%= u.text_field(:strike_price) %>
+  </div>
+  <div class="small-2 columns">
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="small-4 columns">
+    <label class="text-right middle"><%= u.label(:time, "TIME OF MATURITY (yrs) : ") %></label>
+  </div>
+  <div class="small-5 columns">
+    <%= u.text_field(:time) %>
+  </div>
+  <div class="small-2 columns">
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="small-4 columns">
+    <label class="text-right middle"><%= u.label(:volatility, "VOLATILITY : ") %></label>
+  </div>
+  <div class="small-5 columns">
+    <%= u.text_field(:volatility) %>
+  </div>
+  <div class="small-2 columns">
+  </div>
+</div>
+<div class="row">
+
+  <div class="small-4 columns">
+    <label class="text-right middle"><%= u.label(:is_call, "OPTION TYPE : ") %></label>
+  </div>
+  <div class="small-5 columns">
+    <%= u.select(:is_call, {"CALL" => 1, "PUT" => 0}) %>
+  </div>
+  <div class="small-2 columns">
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="small-4 columns">
+    <label class="text-right middle"><%= u.label(:updated_at, "RISK FREE RATE : ") %></label>
+  </div>
+  <div class="small-5 columns">
+    <%= u.text_field(:risk_free_rate) %>
+  </div>
+  <div class="small-2 columns">
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<br>

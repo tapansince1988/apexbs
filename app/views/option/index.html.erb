@@ -1,0 +1,78 @@
+<style>
+  ul.tabs {
+    text-align: center;
+  }
+
+  ul.tabs li {
+    float: none !important;
+    display: inline-block;
+  }
+</style>
+
+<!--<ul class="tabs" data-tabs id="option-type-tabs">-->
+<!--<li class="tabs-title is-active"><a href="#call" aria-selected="true">CALL</a></li>-->
+<!--<li class="tabs-title"><a href="#put">PUT</a></li>-->
+<!--</ul>-->
+
+<!--<div class="tabs-content" data-tabs-content="option-type-tabs">-->
+<!--<div class="tabs-panel is-active" id="call">-->
+<!--< @option.each do |opt| %>-->
+<!--< if(opt.is_call?) %>-->
+<!--<div class="row">-->
+<!--<h5><%#= opt.title %></h5>-->
+
+<!--<%##= link_to("View", {:action => 'show', :id => opt.id}) %>-->
+
+<!--<%#= link_to("Edit", {:action => 'edit', :id => opt.id}) %>-->
+
+<!--<%#= link_to("Delete", {:action => 'delete', :id => opt.id}) %>-->
+<!--</div>-->
+<!--< end %>-->
+<!--< end %>-->
+<!--</div>-->
+<!--<div class="tabs-panel" id="put">-->
+<!--< @option.each do |opt| %>-->
+<!--< if(!opt.is_call?) %>-->
+<!--<div class="row">-->
+<!--<h5><%#= opt.title %></h5>-->
+
+<!--<%#= link_to("View", {:action => 'show', :id => opt.id}) %>-->
+
+<!--<%#= link_to("Edit", {:action => 'edit', :id => opt.id}) %>-->
+
+<!--<%#= link_to("Delete", {:action => 'delete', :id => opt.id}) %>-->
+<!--</div>-->
+<!--< end %>-->
+<!--< end %>-->
+<!--</div>-->
+<!--</div>-->
+
+<table class="center">
+  <tr>
+    <th>TITLE</th>
+    <th>STOCK PRICE</th>
+    <th>STATUS</th>
+    <th>TYPE</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @option.each do |opt| %>
+        <tr class="text-center">
+          <td><%= opt.title %></td>
+          <td><%= opt.stock_price %></td>
+          <% @expiry_date = opt.created_at+(opt.time.year) %>
+          <% if(@expiry_date.year >= Time.now.year) %>
+              <td>Active</td>
+          <% else %>
+              <td>Expired</td>
+          <% end %>
+          <td><%= opt.is_call ? "CALL" : "PUT" %></td>
+          <td>
+            <%= link_to("View", {:action => 'show', :id => opt.id}, :class => "button") %>
+
+            <%= link_to("Edit", {:action => 'edit', :id => opt.id}, :class => "button") %>
+
+            <%= link_to("Delete", {:action => 'delete', :id => opt.id}, :class => "button") %>
+          </td>
+        </tr>
+  <% end %>
+</table>

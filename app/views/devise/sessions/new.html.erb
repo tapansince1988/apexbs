@@ -1,0 +1,18 @@
+<style>
+  .alert{
+    color: red;
+  }
+</style>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row column log-in-form">
+    <h4 class="text-center">Log in</h4>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.check_box :remember_me %><%= f.label :remember_me %>
+    <%= f.submit "Log in", :class => "button expanded" %>
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>

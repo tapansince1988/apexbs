@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--<title><%#= content_for?(:title) ? yield(:title) : "Untitled" %></title>-->
+
+  <%= stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+    <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+      <div class="row column">
+        <br>
+        <img class="thumbnail" src="http://placehold.it/550x350">
+        <h6><%= current_user.email %></h6>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <hr>
+        <%= link_to "Create new Options", :controller => "option", :action => "new" %>
+        <br>
+        <%= link_to "show all Options", :controller => "option", :action => "index" %>
+
+      </div>
+    </div>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="callout primary">
+        <div class="row column  text-center">
+          <h5><%= @page_heading || "Black Scholes Calculator"%></h5>
+        </div>
+      </div>
+
+      <div class="column small-9 spacer">
+        <% if !flash[:notice].blank? %>
+            <div class="callout primary"><h5><%= flash[:notice] %></h5></div>
+        <% end %>
+      </div>
+
+      <%= yield %>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>
+
+

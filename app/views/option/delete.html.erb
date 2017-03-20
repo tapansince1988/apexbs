@@ -1,0 +1,29 @@
+<% @page_heading = "Delete Option." %>
+
+<div class="column spacer"><%= link_to("Back to all options", {:action => 'index'}, :class => "button") %></div>
+<div class="column spacer">
+  <div class="callout secondary ">
+<div class="text-center">
+  <h4>Are you sure you want to delete the option permanently?</h4><br>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:title, "TITLE : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.title %></label>
+    </div>
+  </div>
+
+  <div class="row middle text-center">
+    <div class="small-6 columns">
+      <label class="text-right middle"><%= label_tag(:stock_price, "STOCK PRICE : ") %></label>
+    </div>
+    <div class="small-6 columns">
+      <label class="text-left middle"><%= @option.stock_price %></label>
+    </div>
+  </div>
+  <%= link_to("Delete", {:action => 'destroy', :id => @option.id}, :class => "button") %><br>
+</div>
+  </div>
+</div>

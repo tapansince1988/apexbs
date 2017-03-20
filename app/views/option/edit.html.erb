@@ -1,0 +1,25 @@
+<% @page_heading = "Edit Option." %>
+
+<style>
+  .field_with_errors input {
+    border-color: red;
+  }
+</style>
+
+
+<div class="column spacer"><%= link_to("Back to all options", {:action => 'index'}, :class => "button") %></div>
+
+<div>
+  <%= form_for(:option, :url => {:action => "update", :id => @option.id}, :html => {:multipart => true}) do |ur| %>
+      <%= render(:partial => 'form', :locals => {:u => ur}) %>
+      <p class="text-center">
+        <%= submit_tag("Update options", :class => "button") %>
+      </p>
+      <% if @option.errors.any? %>
+          <% @option.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+      <% end %>
+      <p>&nbsp;</p><P>&nbsp;</P>
+  <% end %>
+</div>
